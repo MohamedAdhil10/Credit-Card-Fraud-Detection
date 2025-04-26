@@ -1,57 +1,61 @@
-# Credit Card Fraud Detection System
+# Credit Card Fraud Detection with XGBoost and Streamlit
 
-##Project Overview
+This project involves building a real-time credit card fraud detection system using machine learning and deploying it via a Streamlit app. The system uses the XGBoost classifier for prediction and SHAP (SHapley Additive exPlanations) for model interpretability.
 
-This project focuses on building a real-time Credit Card Fraud Detection system using machine learning (XGBoost) and visual explanation techniques (SHAP). It includes:
+## Project Overview
 
-Training a fraud detection model
+Credit card fraud detection is an important application of machine learning, especially for preventing financial fraud. In this project, we use a dataset of credit card transactions to classify them as either legitimate or fraudulent based on various features such as transaction amount, time, and more.
 
-Evaluating model performance
+This project consists of two main parts:
+1. **Training the Fraud Detection Model** using XGBoost.
+2. **Deploying a Streamlit Web Application** for real-time fraud detection and displaying SHAP value explanations.
 
-Developing an interactive web application with Streamlit for real-time predictions
+## Dataset
 
+The dataset used in this project is from the [Credit Card Fraud Detection Kaggle competition](https://www.kaggle.com/mlg-ulb/creditcardfraud). It contains transactions made by credit card holders and is labeled to indicate whether a transaction is fraudulent (`Class = 1`) or legitimate (`Class = 0`).
 
-##Features
+### Columns in the dataset:
+- `V1` to `V28`: Features resulting from a PCA transformation.
+- `Time`: The time elapsed between this transaction and the first transaction in the dataset.
+- `Amount`: The transaction amount.
+- `Class`: The target variable where 1 indicates fraudulent and 0 indicates legitimate transactions.
 
-SMOTE: Handling imbalanced datasets
+### Steps in the Project:
 
-XGBoost Classifier: Robust and accurate model
+1. **Data Preprocessing:**
+   - The dataset is cleaned and preprocessed by scaling the `Amount` feature using `StandardScaler` and handling class imbalance using SMOTE (Synthetic Minority Over-sampling Technique).
+   
+2. **Model Training:**
+   - The XGBoost classifier is used to train the model on the preprocessed dataset.
 
-SHAP: Model interpretability and transaction risk explanation
+3. **Model Evaluation:**
+   - The model is evaluated using classification metrics such as accuracy, precision, recall, and ROC AUC score.
 
-Streamlit App: Upload transaction data and detect frauds
+4. **Model Interpretability:**
+   - SHAP (SHapley Additive exPlanations) is used to explain the model’s predictions, allowing us to understand which features contributed most to the model’s decision-making process.
 
-Risk Gauge: Visual risk level for flagged transactions
+5. **Streamlit App Deployment:**
+   - A Streamlit web application is created to allow users to upload their own transaction data for real-time fraud detection. The app uses the trained model to classify transactions and displays the results along with visualizations.
 
+## Requirements
 
-#Installation
+- Python 3.x
+- `kagglehub`
+- `pandas`
+- `scikit-learn`
+- `imbalanced-learn`
+- `xgboost`
+- `shap`
+- `matplotlib`
+- `joblib`
+- `streamlit`
+- `plotly`
 
-1. Clone the repository:
+You can install the required packages using the following command:
 
+```bash
+pip install kagglehub pandas scikit-learn imbalanced-learn xgboost shap matplotlib joblib streamlit plotly
 
-
-https://github.com/your-repo/credit-card-fraud-detection.git
-cd credit-card-fraud-detection
-
-2. Install dependencies:
-
-
-
-pip install -r requirements.txt
-
-requirements.txt
-
-streamlit
-pandas
-numpy
-scikit-learn
-imblearn
-xgboost
-matplotlib
-shap
-kagglehub
-plotly
-joblib
 
 Dataset
 
