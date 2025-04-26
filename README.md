@@ -1,4 +1,4 @@
-# Credit Card Fraud Detection with XGBoost and Streamlit
+# Credit Card Fraud Detection
 
 This project involves building a real-time credit card fraud detection system using machine learning and deploying it via a Streamlit app. The system uses the XGBoost classifier for prediction and SHAP (SHapley Additive exPlanations) for model interpretability.
 
