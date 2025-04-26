@@ -1,6 +1,6 @@
 # Credit Card Fraud Detection System
 
-Project Overview
+##Project Overview
 
 This project focuses on building a real-time Credit Card Fraud Detection system using machine learning (XGBoost) and visual explanation techniques (SHAP). It includes:
 
@@ -11,7 +11,7 @@ Evaluating model performance
 Developing an interactive web application with Streamlit for real-time predictions
 
 
-Features
+##Features
 
 SMOTE: Handling imbalanced datasets
 
@@ -24,7 +24,7 @@ Streamlit App: Upload transaction data and detect frauds
 Risk Gauge: Visual risk level for flagged transactions
 
 
-Installation
+#Installation
 
 1. Clone the repository:
 
