@@ -76,12 +76,13 @@ streamlit run app.py
 
 ```
 .
-├── model_training.py          # Training and saving model
-├── app.py                      # Streamlit application
-├── xgb_fraud_model.pkl         # Saved model
-├── scaler.pkl                  # Saved scaler
-├── requirements.txt            # List of required libraries
-└── README.md                   # Project documentation
+├── README.md             # Project documentation
+├── app.py                #  Streamlit application
+├── fraud_detection.py    # Training and saving model
+├── requirements.txt      # List of required libraries
+├── scaler.pkl            # Saved scaler
+├── xgb_fraud_model.pkl   # Saved model
+└── (creditcard.csv auto-downloaded by kagglehub)                   
 ```
 
 ---
