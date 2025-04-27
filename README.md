@@ -116,5 +116,5 @@ A dynamic gauge showing the probability risk for the most risky transaction uplo
 
 ---
 
-Feel free to contribute, raise issues, or suggest features!
+Feel free to raise issues, or suggest features!
 
