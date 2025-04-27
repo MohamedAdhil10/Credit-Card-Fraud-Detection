@@ -91,9 +91,8 @@ streamlit run app.py
 
 **1. Prediction Results Table**
 
-| Feature 1 | Feature 2 | ... | Fraud Probability | Is Fraudulent |
-|-----------|-----------|-----|-------------------|---------------|
-| 0.1234    | 0.5678    | ... | 0.92              | Yes           |
+![Prediction Results Table](https://github.com/user-attachments/assets/4e033672-b23c-4c8e-89c1-4fc99ec75ad9)
+
 
 **2. Risk Gauge Visualization**
 
@@ -101,7 +100,8 @@ A dynamic gauge showing the probability risk for the most risky transaction uplo
 
 **3. SHAP Force Plot**
 
-A force plot visualizing feature contributions toward fraud prediction.
+![SHAP Force Plot](https://github.com/user-attachments/assets/12755d7a-7f57-49ac-a849-313d710fcb9e)
+
 
 ---
 
