@@ -5,6 +5,7 @@ import joblib
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import numpy as np
+import streamlit_shap
 
 # Load model and scaler
 model = joblib.load("xgb_fraud_model.pkl")
@@ -46,36 +47,47 @@ if uploaded_file is not None:
         shap_values = explainer.shap_values(data.drop(['Fraud Probability', 'Is Fraudulent'], axis=1))
 
         # Get Top Risky Transaction
-        top_transaction = data.drop(['Fraud Probability', 'Is Fraudulent'], axis=1).iloc[0]
-        top_probability = data.iloc[0]['Fraud Probability']
+        top_idx = risky['Fraud Probability'].idxmax()
+        top_transaction = data.drop(['Fraud Probability', 'Is Fraudulent'], axis=1).loc[top_idx]
+        top_probability = risky.loc[top_idx, 'Fraud Probability']
+
 
         # Risk Level Gauge
         fig_gauge = go.Figure(go.Indicator(
-            mode="gauge+number",
+            mode="gauge+number+delta",
             value=top_probability * 100,
-            domain={'x': [0, 1], 'y': [0, 1]},
-            title={'text': "Fraud Risk (%)"},
+            delta={'reference': 50, 'increasing': {'color': "red"}, 'decreasing': {'color': "green"}},
             gauge={
                 'axis': {'range': [0, 100]},
-                'bar': {'color': "red"},
+                'bar': {'color': "darkred"},
                 'steps': [
                     {'range': [0, 30], 'color': "lightgreen"},
                     {'range': [30, 70], 'color': "yellow"},
                     {'range': [70, 100], 'color': "red"}
                 ],
                 'threshold': {
-                    'line': {'color': "black", 'width': 4},
-                    'thickness': 0.75,
+                    'line': {'color': "black", 'width': 8},
+                    'thickness': 0.9,
                     'value': top_probability * 100
                 }
-            }
+            },
+            title={'text': "Fraud Risk (%)"}
         ))
         st.plotly_chart(fig_gauge, use_container_width=True)
 
-        # SHAP Force Plot
-        fig, ax = plt.subplots(figsize=(12, 4))  # Create figure
-        shap.force_plot(explainer.expected_value, shap_values[0, :], top_transaction, matplotlib=True)
-        st.pyplot(fig)  # Display figure properly
+        # SHAP Force Plot (Corrected)
+        st.subheader("SHAP Force Plot Explanation")
+
+        shap.initjs()
+        streamlit_shap.st_shap(
+            shap.force_plot(
+                explainer.expected_value,
+                shap_values[0, :],
+                top_transaction
+            ),
+            height=300
+        )
+
     else:
         st.info("No fraudulent transactions detected!")
 else:
