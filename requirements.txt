@@ -9,3 +9,4 @@ kagglehub
 joblib
 seaborn
 numpy
+streamlit_shap
