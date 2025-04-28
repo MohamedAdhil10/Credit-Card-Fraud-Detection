@@ -43,6 +43,7 @@ pip install -r requirements.txt
 - streamlit
 - plotly
 - numpy
+- streamlit_shap
 
 3. **Kaggle API Setup**
 Make sure your Kaggle API token is properly set up to use `kagglehub`.
